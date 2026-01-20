@@ -1,0 +1,16 @@
+{
+    "name": "Wani AI",
+    "short_name": "Wani",
+    "description": "An offline-capable AI Chatbot & Tool running entirely in your browser.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#00ddeb",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

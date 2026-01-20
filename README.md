@@ -1,59 +1,75 @@
 # Wani AI 🌐
 
-`Wani AI` is a versatile, browser-based tool designed for tech enthusiasts, offering a chatbot for engaging conversations on networking topics and a feature to convert IP addresses between decimal and binary formats. No server setup required—just pure HTML, CSS, and JavaScript magic!
+**Wani AI** is a cutting-edge, **Serverless AI Chatbot** that runs entirely inside your web browser. 
+It combines instant hardcoded knowledge with a real **Large Language Model (LLM)** for deep reasoning—all without sending your data to any cloud server.
 
-`👉 Live Demo:` https://cybrikx.github.io/wani-ai/
-
-`Last Updated:` Saturday, May 17, 2025, 10:15 PM +08
-
-## Features ✨
-
-- `Chatbot:` Discuss over 100 networking topics (e.g., TCP, DNS, VPN) with dynamic, context-aware responses.
-- `IP Converter:` Seamlessly convert IP addresses (e.g., `192.168.1.1` to binary `11000000.10101000.00000001.00000001`) and vice versa.
-- `Responsive Design:` Enjoy a sleek, neon-gradient interface optimized for desktop and mobile devices.
-- `Offline Support:` Utilizes a service worker for offline functionality, ensuring access anytime.
-- `AI Enhancements:` Supports TensorFlow.js—add models to `/models` for advanced chatbot capabilities.
-
-## Installation 🚀
-
-`No complex setup needed! Wani AI runs directly in your browser.`
-
-1. `Clone the repository:`
-
-```bash
-git clone https://github.com/cybrikx/wani-ai.git
-```
-
-2. `Navigate to the project folder and open index.html` in any modern browser (e.g., Chrome, Firefox, Edge).
-3. `Optional: Enhance with AI:` Place TensorFlow.js model files in the `/models` directory and adjust the `loadModel` function in the script.
-
-## Usage 🎮
-
-- `Chat Mode:` Switch to "Chat" mode, type a question or topic (e.g., `What is DNS?` or `Tell me a joke`), and press `Send` or `Enter` to get a response.
-- `IP Convert Mode:` Select "IP Convert," input an IP address (e.g., `192.168.1.1`) or binary string, and hit `Convert` or `Enter` for instant results.
-- `Offline Access:` Works without internet once loaded, thanks to the service worker.
-- `Menu Options:` Use the hamburger menu to clear chat history, download the app as HTML, or learn about the project.
-
-## Contributing 🤝
-
-`We love community input! Here’s how to contribute:`
-
-- `Small Changes:` Submit pull requests for bug fixes or minor enhancements.
-- `Major Changes:` Open an issue first to discuss your ideas (e.g., new features or chatbot logic updates).
-- `Guidelines:`
-  - Ensure code matches the existing style (HTML, CSS, JS).
-  - Update documentation or chatbot responses as needed.
-  - Test changes in multiple browsers (Chrome, Firefox, Safari).
-
-## License 📜
-
-`Released under the MIT License.` Feel free to use, modify, and distribute Wani AI!
-
-## Credit 🌟
-
-`Created with passion by cybrikx.` Follow his journey on Instagram `@waqarro1`.
+`👉 Live Demo:` [cybrikx.github.io/wani-ai](https://cybrikx.github.io/wani-ai/)
 
 ---
 
-`Built with ❤️ by the cybrikx team`
+## 🧠 How It Works (The "Magic")
+
+1.  **Hybrid Intelligence**:
+    *   **Tier 1 (Instant):** For common questions ("What is TCP?", "Hi", "hhh"), it uses a lightning-fast local database (`js/data.js`).
+    *   **Tier 2 (Deep AI):** For complex tasks ("Write a poem", "Explain quantum physics"), it loads a real AI Brain (`Qwen1.5-0.5B-Chat`) directly into your browser using **WebAssembly**.
+
+2.  **Where is the Data?** 
+    *   The model weights (approx 300MB) are downloaded **from Hugging Face** the first time you visit.
+    *   After that, they are **cached** in your browser. You can go offline and it will still work!
+    *   **Privacy:** No messages leave your device. You are the server.
+
+3.  **Why is it Slow?** 🐢 vs 🐇
+    *   **ChatGPT**: Sends your text to a Supercomputer ($10,000 GPUs) in a datacenter. Fast, but relies on internet.
+    *   **Wani AI**: Runs on **YOUR Device's CPU**. It requires billions of calculations per second. It's slower because it's doing heavy math right on your laptop/phone, but it's **100% Free, Private, and Offline-Capable**.
+
+---
+
+## Features ✨
+
+*   **🎙️ Voice Interaction**: Talk to Wani and hear it speak back (Iron Man style).
+*   **⏹️ Smart Controls**: Stop generation anytime. Prevents freezing using **Web Workers**.
+*   **📡 IP Converter**: Professional tool to convert IPs to Binary and back.
+*   **📱 PWA Ready**: Install it as a native app on iOS/Android/PC.
+*   **🔌 Offline Mode**: Works without WiFi (Service Worker enabled).
+*   **🎨 Glassmorphism UI**: Beautiful, modern dark UI with neon accents.
+
+## Installation 🚀
+
+Run it locally in seconds:
+
+1.  **Clone the Repo**:
+    ```bash
+    git clone https://github.com/cybrikx/wani-ai.git
+    cd wani-ai
+    ```
+
+2.  **Run a Local Server** (Browsers block Workers on file://):
+    *   VS Code: Right-click `index.html` -> **Open with Live Server**.
+    *   Python: `python3 -m http.server`
+    *   Node: `npx serve`
+
+3.  **Open Browser**: Go to `http://localhost:8000` (or displayed port).
+
+## Project Structure 📂
+
+*   `index.html`: The main UI.
+*   `css/style.css`: All the fancy styling.
+*   `js/script.js`: UI logic (buttons, voice, chat handling).
+*   `js/worker.js`: **The AI Brain**. Runs in a background thread to keep valid UI.
+*   `js/data.js`: Instant answers & synonyms.
+
+## Contributing 🤝
+
+We love upgrading the brain! 
+*   **Add Knowledge**: Edit `js/data.js` to add more instant answers.
+*   **Improve UI**: CSS PRs are welcome.
+
+## License 📜
+
+Released under the **MIT License**. Free for everyone.
+
+## Credit 🌟
+
+Created with passion by **Waqar Ahmad** (`@waqarro1`).
+Powered by [Transformers.js](https://huggingface.co/docs/transformers.js) & [Xenova](https://github.com/xenova).
 
